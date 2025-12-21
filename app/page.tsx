@@ -1,12 +1,43 @@
-import { Button } from "@/components/ui/button";
-import React from "react";
-
+import CompanionCard from "@/components/CompanionCard";
+import CompanionList from "@/components/CompanionList";
+import CTA from "@/components/CTA";
 const Page = () => {
   return (
-    <div>
-      <h1 className="text-2xl underline">Welcome to My LMS Saas App</h1>
-      <Button>Let's get started</Button>
-    </div>
+    <main>
+      <h1 className="text-2xl underline">Popular Companions</h1>
+
+      <section className="home-section">
+        <CompanionCard
+          id="123"
+          name="Neura the Brainy Explorer"
+          topic="Neural Network of the Human Brain"
+          subject="science"
+          duration={45}
+          color="#ffda6e"
+        />
+        <CompanionCard
+          id="333"
+          name="Neura the Brainy Explorer"
+          topic="Neural Network of the Human Brain"
+          subject="science"
+          duration={45}
+          color="#ffda6e"
+        />
+        <CompanionCard
+          id="335"
+          name="Neura the Brainy Explorer"
+          topic="Neural Network of the Human Brain"
+          subject="science"
+          duration={45}
+          color="#ffda6e"
+        />
+      </section>
+
+      <section className="home-section">
+        <CompanionList />
+        <CTA />
+      </section>
+    </main>
   );
 };
 
