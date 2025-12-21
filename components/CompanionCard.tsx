@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Button } from "./ui/button";
 import Link from "next/link";
 
 interface CompanionCardProps {
@@ -37,7 +36,7 @@ const CompanionCard = ({
       <p className="text-sm">{topic} </p>
       <div className="flex items-center gap-2">
         <Image src="/icons/clock.svg" alt="clock" width={13.5} height={13.5} />
-        <p className="textsm">{duration} mins duration</p>
+        <p className="text-sm">{duration} mins duration</p>
       </div>
 
       <Link href={`/companions/${id}`} className="w-full">
