@@ -36,7 +36,7 @@ const CompanionList = ({
           {companions?.map(({ id, subject, name, topic, duration }) => (
             <TableRow key={id}>
               <TableCell>
-                <Link href={`/companion/${id}`}>
+                <Link href={`/companions/${id}`}>
                   <div className="flex items-center gap-2">
                     <div
                       className="size-18 flex items-center justify-center rounded-lg max-md:hidden"
