@@ -2,7 +2,7 @@
 
 import { auth } from "@clerk/nextjs/server"
 import { createSupabaseClient } from "../supabase";
-import { create } from "domain";
+
 
 export const createCompanion = async (formData: CreateCompanion) => {
   
@@ -16,9 +16,14 @@ export const createCompanion = async (formData: CreateCompanion) => {
       author
     })
     .select()
+    .single()
    
-    if(error || !data){
+    if(error){
       throw new Error(error.message);
+    }
+
+    if(!data){
+      throw new Error("Failed to create companion");
     }
 
     return data;
@@ -60,9 +65,10 @@ export const getCompanion = async (id: string) => {
     .single();
 
   if (error) {
-    console.error(error);
-    return null; 
-  }
+    console.error("Error fetching companion:", error);
+  return null;
+}
+
 
   return data; 
 };

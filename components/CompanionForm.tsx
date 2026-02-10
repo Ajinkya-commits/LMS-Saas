@@ -175,9 +175,9 @@ const CompanionForm = () => {
                       <SelectValue placeholder="Select the Style" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Formal">Formal</SelectItem>
+                      <SelectItem value="formal">Formal</SelectItem>
 
-                      <SelectItem value="Casual">Casual</SelectItem>
+                      <SelectItem value="casual">Casual</SelectItem>
                     </SelectContent>
                   </Select>
                 </FormControl>
