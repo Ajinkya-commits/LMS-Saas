@@ -33,8 +33,8 @@ const CompanionList = ({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {companions?.map(({ id, subject, name, topic, duration }) => (
-            <TableRow key={id}>
+          {companions?.map(({ id, subject, name, topic, duration }, index) => (
+            <TableRow key={`${id}-${index}`}>
               <TableCell>
                 <Link href={`/companions/${id}`}>
                   <div className="flex items-center gap-2">
@@ -58,7 +58,9 @@ const CompanionList = ({
               </TableCell>
 
               <TableCell>
-                <div className="subject-badge w-fit max-md:hidden">{subject}</div>
+                <div className="subject-badge w-fit max-md:hidden">
+                  {subject}
+                </div>
                 <div
                   className="flex items-center justify-center rounded-lg w-fit p-2 md:hidden"
                   style={{ backgroundColor: getSubjectColor(subject) }}
