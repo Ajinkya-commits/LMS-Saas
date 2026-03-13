@@ -4,6 +4,8 @@ import SubjectFilter from "@/components/SubjectFilter";
 import { getAllCompanions } from "@/lib/actions/companion.actions";
 import { getSubjectColor } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
   const filters = await searchParams;
   const subject = filters.subject ? filters.subject : "";
@@ -11,7 +13,6 @@ const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
 
   const companions = await getAllCompanions({ subject, topic });
 
-  console.log(companions);
   return (
     <main>
       <section className="flex justify-between gap-4 max-sm:flex-col">

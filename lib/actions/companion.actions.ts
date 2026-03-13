@@ -93,13 +93,13 @@ export const getRecentSessions = async(limit = 10) => {
 
   const {data, error} = await supabase
     .from('session_history')
-    .select(`companions:companion_id (*)`)
+    .select(`companions:companion_id!inner (*)`)
     .order('created_at', { ascending: false })
     .limit(limit);
 
     if(error) throw Error(error.message);
 
-    return data.map(({companions}) => companions);
+    return data.map(({companions}) => companions).flat();
 }
 
 export const getUserSessions = async(userId:string,limit = 10) => {
@@ -107,14 +107,14 @@ export const getUserSessions = async(userId:string,limit = 10) => {
 
   const {data, error} = await supabase
     .from('session_history')
-    .select(`companions:companion_id (*)`)
+    .select(`companions:companion_id!inner (*)`)
     .eq('user_id', userId)
     .order('created_at', { ascending: false })
     .limit(limit);
 
     if(error) throw Error(error.message);
 
-    return data.map(({companions}) => companions);
+    return data.map(({companions}) => companions).flat();
 }
 
 

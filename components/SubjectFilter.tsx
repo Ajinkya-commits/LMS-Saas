@@ -20,6 +20,8 @@ const SubjectFilter = () => {
     const [subject, setSubject] = useState(query);
 
     useEffect(() => {
+        if (!subject) return;
+
         let newUrl = "";
         if (subject === "all") {
             newUrl = removeKeysFromUrlQuery({
@@ -34,7 +36,7 @@ const SubjectFilter = () => {
             });
         }
         router.push(newUrl, { scroll: false });
-    }, [subject]);
+    }, [subject, router, searchParams]);
 
     return (
         <Select onValueChange={setSubject} value={subject}>

@@ -19,7 +19,6 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
 
   const { name, subject, topic, duration } = companion;
 
-  console.log(companion);
   return (
     <main>
       <article className="flex rounded-border justify-between p-6">
@@ -53,7 +52,7 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
       <CompanionComponent
         {...companion}
         companionId={id}
-        userName={user.firstName}
+        userName={user.firstName || "User"}
         userImage={user.imageUrl}
       />
     </main>

@@ -78,7 +78,7 @@ const CompanionComponent = ({
       vapi.off("message", onMessage);
       vapi.off("error", onError);
     };
-  }, []);
+  }, [companionId]);
 
   const toggleMicrophone = () => {
     if (callStatus !== CallStatus.ACTIVE) return;

@@ -22,7 +22,7 @@ const NewCompanion = async () => {
       ) : (
         <article className="companion-limit">
           <Image
-            src="images/limit.svg"
+            src="/images/limit.svg"
             alt="Companion limit reached"
             width={360}
             height={230}

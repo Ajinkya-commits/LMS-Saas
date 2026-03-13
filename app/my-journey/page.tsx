@@ -21,14 +21,15 @@ const Profile = async () => {
   const sessionHistory = await getUserSessions(user.id);
 
   return (
-    <main className="lg:w-3/4">
-      <section className="flex justify-center gap-4 max-sm:flex-col items-center">
+    <main className="w-full lg:w-3/4 mx-auto flex flex-col gap-8 mt-8">
+      <section className="flex justify-between w-full max-sm:flex-col sm:items-center gap-8">
         <div className="flex gap-4 items-center">
           <Image
             src={user.imageUrl}
             alt={user.firstName!}
             width={110}
             height={110}
+            className="rounded-full object-cover"
           />
 
           <div className="flex flex-col gap-2">
@@ -65,27 +66,32 @@ const Profile = async () => {
             <div>AI Companions Created</div>
           </div>
         </div>
+      </section>
 
-        <Accordion type="multiple">
-          <AccordionItem value="recent">
-            <AccordionTrigger className="text-2xl font-bold">
+      <section className="w-full">
+        <Accordion type="multiple" className="w-full flex flex-col gap-4">
+          <AccordionItem value="recent" className="border px-4 rounded-xl">
+            <AccordionTrigger className="text-2xl font-bold hover:no-underline">
               Recent Sessions
             </AccordionTrigger>
             <AccordionContent>
               <CompanionList
                 title="Recent Sessions"
                 companions={sessionHistory}
+                classNames="w-full"
               />
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="companions">
-            <AccordionTrigger className="text-2xl font-bold">
+          
+          <AccordionItem value="companions" className="border px-4 rounded-xl">
+            <AccordionTrigger className="text-2xl font-bold hover:no-underline">
               My Companions {`(${companions.length})`}
             </AccordionTrigger>
             <AccordionContent>
               <CompanionList
                 title="My Companions"
                 companions={companions}
+                classNames="w-full"
               />
             </AccordionContent>
           </AccordionItem>
